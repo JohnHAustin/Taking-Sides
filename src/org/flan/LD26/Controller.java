@@ -36,7 +36,7 @@ public class Controller
 	
 	public void tick()
 	{
-		if(Keyboard.isKeyDown(keyPause) && main.pauseDelay < 0)
+		if((Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) || Keyboard.isKeyDown(keyPause)) && main.pauseDelay < 0)
 		{
 			main.paused = !main.paused;
 			main.pauseDelay = 10;
@@ -110,11 +110,9 @@ public class Controller
 			}
 			
 		}
-		
-		
+		/*
 		if(Keyboard.isKeyDown(Keyboard.KEY_ESCAPE))
 			Main.stopGame();
-		
-		
+		*/
 	}
 }
