@@ -10,7 +10,7 @@ public class EntityFireSlime extends EntitySlime
 		fireProofing = 10;
 		colour = 0xff6E00;
 		bloodColour = 0x000000;
-		isOnFire = true;
+		fireTimer = 1;
 	}
 
 	@Override
