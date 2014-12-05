@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="src/ibxm.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Taking Sides/bin/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/jinput.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Taking Sides/bin/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/jogg-0.0.7.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Taking Sides/bin/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/jorbis-0.0.15.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Taking Sides/bin/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/lwjgl_applet.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Taking Sides/bin/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/lwjgl_util_applet.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Taking Sides/bin/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/lwjgl_util.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Taking Sides/bin/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/lwjgl.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Taking Sides/bin/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/macosx_natives.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Taking Sides/bin/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/slick-util.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Taking Sides/bin/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/slick.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Taking Sides/bin/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/solaris_natives.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Taking Sides/bin/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/windows_natives.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Taking Sides/bin/natives"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
