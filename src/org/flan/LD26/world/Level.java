@@ -37,7 +37,7 @@ public class Level
 			generateTrees();
 		playerEntity = new EntityCreature(this, 2000, 1500, main.thePlayer);
 		playerEntity.sides = main.thePlayer.sides;
-		playerEntity.isOnFire = false;
+		playerEntity.fireTimer = 0;
 		spawnEntity(playerEntity);
 	}
 	
