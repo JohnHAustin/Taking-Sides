@@ -6,6 +6,7 @@ import org.flan.LD26.world.Level;
 public class EntityCreature extends Entity
 {
 	public Creature creature;
+	public boolean replace = true;
 	public int takeKnockback = 10;
 	public int bloodColour = 0xff0000;
 	public int bloodAmount = 10;

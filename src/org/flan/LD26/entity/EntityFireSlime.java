@@ -5,7 +5,8 @@ import org.flan.LD26.world.Level;
 public class EntityFireSlime extends EntitySlime 
 {
 
-	public EntityFireSlime(Level l, float x, float y) {
+	public EntityFireSlime(Level l, float x, float y)
+	{
 		super(l, x, y, new Creature(50));
 		fireProofing = 10;
 		colour = 0xff6E00;
@@ -16,6 +17,17 @@ public class EntityFireSlime extends EntitySlime
 	@Override
 	public void dropItems()
 	{
+		if(!level.bossLevel)
+		{
+			if(replace)
+			{
+				level.spawnEntity(new EntityFireSlime(level, rand.nextInt(level.width), rand.nextInt(level.height)));
+				replace = false;
+			}
+			else
+				replace = true;
+		}
+		
 		if(!level.bossLevel && level.levelNumber == 2)
 			level.spawnEntity(new EntityPowerup(level, posX, posY, 2));
 		if(!level.bossLevel && level.levelNumber >= 3 && rand.nextInt(40) == 0)

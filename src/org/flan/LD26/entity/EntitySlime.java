@@ -78,13 +78,21 @@ public class EntitySlime extends EntityCreature
 	{
 		if(rand.nextInt(3) == 0)
 			level.spawnEntity(new EntityPowerup(level, posX, posY, rand.nextInt(2)));
-		if(!level.bossLevel && rand.nextInt(40) == 0)
-			level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartBlade(3)));
-		if(!level.bossLevel && rand.nextInt(60) == 0)
-			level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartGun(3)));
-		
 		if(!level.bossLevel)
-			level.spawnEntity(new EntitySlime(level, rand.nextInt(level.width), rand.nextInt(level.height)));
+		{
+			if(rand.nextInt(40) == 0)
+				level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartBlade(3)));
+			if(rand.nextInt(60) == 0)
+				level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartGun(3)));
+			
+			if(replace)
+			{
+				level.spawnEntity(new EntitySlime(level, rand.nextInt(level.width), rand.nextInt(level.height)));
+				replace = false;
+			}
+			else
+				replace = true;
+		}
 	}
 	
 	@Override

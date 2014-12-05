@@ -129,7 +129,17 @@ public class EntityWorm extends EntityCreature
 		}
 		if(!isPartStillLiving)
 		{
-			level.spawnEntity(new EntityWorm(level, rand.nextInt(level.width), rand.nextInt(level.height), sides, wormParts.length, (int)collRadius));
+			if(!level.bossLevel)
+			{
+				if(replace)
+				{
+					level.spawnEntity(new EntityWorm(level, rand.nextInt(level.width), rand.nextInt(level.height), sides, wormParts.length, (int)collRadius));
+					replace = false;
+				}
+				else
+					replace = true;
+			}
+			
 			if(level.levelNumber == 1)
 				level.spawnEntity(new EntityPowerup(level, posX, posY, 2));
 			if(!level.bossLevel && level.levelNumber >= 2 && rand.nextInt(40) == 0)
