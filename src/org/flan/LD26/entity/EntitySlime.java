@@ -76,15 +76,19 @@ public class EntitySlime extends EntityCreature
 	@Override
 	public void dropItems()
 	{
-		if(rand.nextInt(3) == 0)
-			level.spawnEntity(new EntityPowerup(level, posX, posY, rand.nextInt(2)));
+		int randomNum = rand.nextInt(60);
 		if(!level.bossLevel)
 		{
-			if(rand.nextInt(40) == 0)
+			if(randomNum < 6 && level.main.thePlayer.bodyParts[0].sides + level.bladeUpgradesSpawned < level.levelNumber + 3)
+			{
 				level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartBlade(3)));
-			if(rand.nextInt(60) == 0)
+				++level.bladeUpgradesSpawned;
+			}
+			if(randomNum < 10 && level.main.thePlayer.bodyParts[1].sides + level.gunUpgradesSpawned < level.levelNumber + 3)
+			{
 				level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartGun(3)));
-			
+				++level.gunUpgradesSpawned;
+			}
 			if(replace)
 			{
 				level.spawnEntity(new EntitySlime(level, rand.nextInt(level.width), rand.nextInt(level.height)));
@@ -93,6 +97,8 @@ public class EntitySlime extends EntityCreature
 			else
 				replace = true;
 		}
+		if(randomNum > 38)
+			level.spawnEntity(new EntityPowerup(level, posX, posY, rand.nextInt(2)));
 	}
 	
 	@Override

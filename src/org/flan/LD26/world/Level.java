@@ -19,6 +19,11 @@ public class Level
 	public int backgroundColour = 0x99BC56;
 	public int treeColour = 0x497228;
 	public int levelNumber;
+	public int bladeUpgradesSpawned = 0;
+	public int gunUpgradesSpawned = 0;
+	public int teleportUpgradesSpawned = 0;
+	public int scatterGunUpgradesSpawned = 0;
+	public int fireRingUpgradesSpawned = 0;
 	public int height = 3000, width = 4000;
 	public int songTimer = -100;
 	public boolean bossLevel;

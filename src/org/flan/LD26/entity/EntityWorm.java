@@ -127,6 +127,9 @@ public class EntityWorm extends EntityCreature
 				isPartStillLiving = true;
 			}
 		}
+		
+		int randomNum = rand.nextInt(60);
+		
 		if(!isPartStillLiving)
 		{
 			if(!level.bossLevel)
@@ -138,32 +141,37 @@ public class EntityWorm extends EntityCreature
 				}
 				else
 					replace = true;
+				
+				if(level.levelNumber == 1)
+					level.spawnEntity(new EntityPowerup(level, posX, posY, 2));
+				
+				if(level.levelNumber >= 2)
+				{
+					if(randomNum < 5 && level.main.thePlayer.bodyParts[0].sides + level.bladeUpgradesSpawned < level.levelNumber + 3)
+					{
+						level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartBlade(3)));
+						++level.bladeUpgradesSpawned;
+					}
+					if(randomNum < 9 && level.main.thePlayer.bodyParts[1].sides + level.gunUpgradesSpawned < level.levelNumber + 3)
+					{
+						level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartGun(3)));
+						++level.gunUpgradesSpawned;
+					}
+					if(randomNum < 11 && level.main.thePlayer.bodyParts[2].sides + level.teleportUpgradesSpawned < level.levelNumber + 3)
+					{
+						level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartTeleport(3)));
+						++level.teleportUpgradesSpawned;
+					}
+					if(randomNum < 13 && level.main.thePlayer.bodyParts[3].sides + level.scatterGunUpgradesSpawned < level.levelNumber + 3)
+					{
+						level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartScatterGun(3)));
+						++level.scatterGunUpgradesSpawned;
+					}
+				}
 			}
-			
-			if(level.levelNumber == 1)
-				level.spawnEntity(new EntityPowerup(level, posX, posY, 2));
-			if(!level.bossLevel && level.levelNumber >= 2 && rand.nextInt(40) == 0)
-			{
-				level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartBlade(3)));
-			}
-			if(!level.bossLevel && level.levelNumber >= 2 && rand.nextInt(40) == 0)
-			{
-				level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartGun(3)));
-			}
-			if(!level.bossLevel && level.levelNumber >= 2 && rand.nextInt(60) == 0)
-			{
-				level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartTeleport(3)));
-			}
-			if(!level.bossLevel && level.levelNumber >= 2 && rand.nextInt(40) == 0)
-				level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartScatterGun(3)));
-			
 		}
-		if(rand.nextInt(10) == 0)
+		if(randomNum > 38)
 			level.spawnEntity(new EntityPowerup(level, posX, posY, rand.nextInt(2)));
-
-		
-
-
 	}
 
 }
