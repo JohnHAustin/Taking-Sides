@@ -18,8 +18,12 @@ public class EntitySlime extends EntityCreature
 	{
 		super(l, x, y, c);
 		jumpingFrom = jumpingTo = new Point(x, y);
-		collRadius = radius = 7 + (int)(Math.atan(Math.PI*(double)creature.health/(300 * (l.levelNumber + 2)))*300/Math.PI);
+		/*
+		 * This sets the slime size depending on the number of sides it has
+		 * and its health. It gives a value between 10 and 160.
+		 */
 		sides = l.levelNumber + 2;
+		collRadius = radius = 10 + (int)(Math.atan(Math.PI*(double)creature.health/(300 * sides))*300/Math.PI);
 		int green = rand.nextInt(0x40);
 		int blue = rand.nextInt(0x80);
 		colour = 0xff2040 + green * 0x100 + blue;
@@ -34,7 +38,8 @@ public class EntitySlime extends EntityCreature
 	public void update()
 	{
 		super.update();
-		collRadius = radius = 7 + (int)(Math.atan(Math.PI*(double)creature.health/(300 * (level.levelNumber + 2)))*300/Math.PI);
+		// Recalculate the slime's size in case it has lost health.
+		collRadius = radius = 10 + (int)(Math.atan(Math.PI*(double)creature.health/(300 * sides))*300/Math.PI);
 		blobbiness += rand.nextGaussian();
 		blobbiness *= 0.8F;		
 		angularVelocity += rand.nextGaussian();
@@ -70,7 +75,12 @@ public class EntitySlime extends EntityCreature
 		if(slimeDelay <= 0 && Math.sqrt(dX * dX + dY * dY) <= 250)
 		{
 			level.spawnEntity(new EntitySlimeBall(this, level.playerEntity));
-			slimeDelay = 20;
+			// The slimes hurt themselves in order to attack you.
+			creature.health = Math.max(creature.health - sides, 0);
+			// The attack delay is between 15 and 100 ticks, depending on the slime's health.
+			slimeDelay = 15 + 85*(creature.maxHealth - creature.health)/creature.maxHealth;
+			if(creature.health <= 0)
+				setDead();
 		}
 	}
 	

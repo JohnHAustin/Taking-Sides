@@ -53,7 +53,8 @@ public class EntityCreature extends Entity
 		}
 		
 		creature.health -= damage;
-		if(creature.health <= 0){
+		if(creature.health <= 0)
+		{
 			setDead();
 			if(creature instanceof CreaturePlayer) 
 			{

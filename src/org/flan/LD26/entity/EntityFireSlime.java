@@ -75,8 +75,7 @@ public class EntityFireSlime extends EntitySlime
 	@Override
 	public void attackEntityFrom(Entity attacker, int damage)
 	{
-		if(attacker instanceof EntityPentagonBoss || attacker instanceof EntityFlamingBullet)
-			return;
-		super.attackEntityFrom(attacker, damage);
+		if(!(attacker instanceof EntityPentagonBoss))
+			super.attackEntityFrom(attacker, damage);
 	}
 }

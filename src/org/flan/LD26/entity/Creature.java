@@ -11,9 +11,9 @@ public class Creature
 		
 	}
 	
-	public Creature(int i)
+	public Creature(int health)
 	{
-		maxHealth = health = i;
+		maxHealth = this.health = health;
 	}
 	
 	public void update(EntityCreature c)

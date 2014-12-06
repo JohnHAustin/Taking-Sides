@@ -9,8 +9,8 @@ public class EntitySlimeBall extends Entity
 	{
 		super(slime.level, slime.posX, slime.posY);
 		this.slime = slime;
-		colour = slime.colour;
-		drawRadius = slime.drawRadius / 5;
+		colour = 0xff00ff;
+		drawRadius = Math.max(7, slime.drawRadius / slime.sides);
 		collRadius = drawRadius;
 		sides = slime.sides;
 		renderPass = 0;
@@ -32,9 +32,9 @@ public class EntitySlimeBall extends Entity
 	@Override
 	public void onCollidedWithEntity(Entity entity)
 	{
-		if(entity != slime)
+		if(!(entity instanceof EntitySlime || entity instanceof EntitySnowflakeBoss))
 		{
-			entity.attackEntityFrom(this, sides);
+			entity.attackEntityFrom(this, sides * 2);
 			if(entity instanceof EntityCreature)
 				setDead();
 		}

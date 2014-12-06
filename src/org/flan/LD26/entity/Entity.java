@@ -17,8 +17,8 @@ public class Entity
 	public int ticksAlive;
 	public int renderPass = 1;
 	/**
-	 * Entities with fireProof will not be hurt by fire
-	 * and will never go out when set alight.
+	 * Entities with fireProof set to true will not be hurt
+	 * by fire and will never go out when set alight.
 	 */
 	public boolean fireProof = false;
 	public int fireTimer = 0;

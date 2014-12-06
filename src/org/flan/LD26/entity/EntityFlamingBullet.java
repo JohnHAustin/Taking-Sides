@@ -25,11 +25,10 @@ public class EntityFlamingBullet extends EntityBullet
 	@Override
 	public void onCollidedWithEntity(Entity entity)
 	{
-		if(entity != parent)
+		if(!entity.fireProof && entity != parent)
 		{
 			entity.attackEntityFrom(this, sides);
-			if(!entity.fireProof)
-				entity.fireTimer += 30;
+			entity.fireTimer += 30;
 		}
 	}
 }

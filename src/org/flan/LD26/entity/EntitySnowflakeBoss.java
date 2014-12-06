@@ -3,14 +3,15 @@ package org.flan.LD26.entity;
 import org.flan.LD26.SoundManager;
 import org.flan.LD26.world.Level;
 
-public class EntitySnowflakeBoss extends EntityCreature{
-
+public class EntitySnowflakeBoss extends EntityCreature
+{
 	public int radius = 100;
 	public int recharge = 160;
 	public boolean halfLife = false;
 	private float angularVelocity;
 	
-	public EntitySnowflakeBoss(Level l, float x, float y) {
+	public EntitySnowflakeBoss(Level l, float x, float y)
+	{
 		super(l, 400, 300, new Creature(800));
 		collRadius = radius - 10;
 		colour = 0xffffff;
@@ -45,7 +46,8 @@ public class EntitySnowflakeBoss extends EntityCreature{
 			recharge = 160;
 			angularVelocity = 0;
 		}
-		colour = 0xffffff - (0xff * Math.abs(80 - recharge) / 80) * 0x100 - (0xff * Math.abs(80 - recharge) / 80);
+		//colour = 0xffffff - (0xff * Math.abs(80 - recharge) / 80) * 0x100 - (0xff * Math.abs(80 - recharge) / 80);
+		colour = 0xffffff - (0xff * Math.abs(80 - recharge) / 80) * 0x100;
 	}
 	
 	@Override

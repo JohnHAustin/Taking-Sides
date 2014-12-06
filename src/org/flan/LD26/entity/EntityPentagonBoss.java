@@ -68,8 +68,6 @@ public class EntityPentagonBoss extends EntityCreature {
 	@Override
 	public void dropItems()
 	{
-		//level.spawnEntity(new EntityPowerup(level, posX + (float)rand.nextGaussian() * 20F, posY + (float)rand.nextGaussian() * 20F, 2));
 		level.spawnEntity(new EntityBodyPart(level, posX + (float)rand.nextGaussian() * 20F, posY + (float)rand.nextGaussian() * 20F, new BodyPartFireRing(3)));
-
 	}
 }
