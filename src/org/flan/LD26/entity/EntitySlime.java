@@ -18,7 +18,7 @@ public class EntitySlime extends EntityCreature
 	{
 		super(l, x, y, c);
 		jumpingFrom = jumpingTo = new Point(x, y);
-		collRadius = radius = creature.maxHealth;
+		collRadius = radius = 7 + (int)(Math.atan(Math.PI*(double)creature.health/(300 * (l.levelNumber + 2)))*300/Math.PI);
 		sides = l.levelNumber + 2;
 		int green = rand.nextInt(0x40);
 		int blue = rand.nextInt(0x80);
@@ -28,12 +28,13 @@ public class EntitySlime extends EntityCreature
 	
 	public EntitySlime(Level l, float x, float y) 
 	{
-		this(l, x, y, new Creature(rand.nextInt(50) + 10));
+		this(l, x, y, new Creature((rand.nextInt(20) + 10)*(l.levelNumber + 2)));
 	}
 
 	public void update()
 	{
 		super.update();
+		collRadius = radius = 7 + (int)(Math.atan(Math.PI*(double)creature.health/(300 * (level.levelNumber + 2)))*300/Math.PI);
 		blobbiness += rand.nextGaussian();
 		blobbiness *= 0.8F;		
 		angularVelocity += rand.nextGaussian();
@@ -76,18 +77,21 @@ public class EntitySlime extends EntityCreature
 	@Override
 	public void dropItems()
 	{
+		boolean dropped = false;
 		int randomNum = rand.nextInt(60);
 		if(!level.bossLevel)
 		{
-			if(randomNum < 6 && level.main.thePlayer.bodyParts[0].sides + level.bladeUpgradesSpawned < level.levelNumber + 3)
+			if(!dropped && randomNum < 6 && level.main.thePlayer.bodyParts[0].sides + level.bladeUpgradesSpawned < level.levelNumber + 3)
 			{
 				level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartBlade(3)));
 				++level.bladeUpgradesSpawned;
+				dropped = true;
 			}
-			if(randomNum < 10 && level.main.thePlayer.bodyParts[1].sides + level.gunUpgradesSpawned < level.levelNumber + 3)
+			if(!dropped && randomNum < 10 && level.main.thePlayer.bodyParts[1].sides + level.gunUpgradesSpawned < level.levelNumber + 3)
 			{
 				level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartGun(3)));
 				++level.gunUpgradesSpawned;
+				dropped = true;
 			}
 			if(replace)
 			{
@@ -97,8 +101,11 @@ public class EntitySlime extends EntityCreature
 			else
 				replace = true;
 		}
-		if(randomNum > 38)
+		if(!dropped && randomNum > 38)
+		{
 			level.spawnEntity(new EntityPowerup(level, posX, posY, rand.nextInt(2)));
+			dropped = true;
+		}
 	}
 	
 	@Override

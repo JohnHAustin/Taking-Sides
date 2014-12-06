@@ -59,7 +59,6 @@ public class EntitySnowflakeBoss extends EntityCreature{
 	public void dropItems()
 	{
 		for(int n = 0; n < 12; n++) level.spawnEntity(new EntitySlime(level, posX + 40*(float)Math.sin(Math.PI*n/6), posY + 40*(float)Math.cos(Math.PI*n/6)));
-		//level.spawnEntity(new EntityPowerup(level, posX + (float)rand.nextGaussian() * 20F, posY + (float)rand.nextGaussian() * 20F, 2));
 		level.spawnEntity(new EntityBodyPart(level, posX + (float)rand.nextGaussian() * 20F, posY + (float)rand.nextGaussian() * 20F, new BodyPartScatterGun(3)));
 	}
 	

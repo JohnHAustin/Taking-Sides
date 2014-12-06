@@ -119,6 +119,8 @@ public class EntityWorm extends EntityCreature
 	public void dropItems()
 	{
 		boolean isPartStillLiving = false;
+		boolean dropped = false;
+		int randomNum = rand.nextInt(60);
 		
 		for(int i = 0; i < wormParts.length; i++)
 		{
@@ -127,8 +129,6 @@ public class EntityWorm extends EntityCreature
 				isPartStillLiving = true;
 			}
 		}
-		
-		int randomNum = rand.nextInt(60);
 		
 		if(!isPartStillLiving)
 		{
@@ -142,36 +142,46 @@ public class EntityWorm extends EntityCreature
 				else
 					replace = true;
 				
-				if(level.levelNumber == 1)
+				if(!dropped && level.levelNumber == 1)
+				{
 					level.spawnEntity(new EntityPowerup(level, posX, posY, 2));
+					dropped = true;
+				}
 				
 				if(level.levelNumber >= 2)
 				{
-					if(randomNum < 5 && level.main.thePlayer.bodyParts[0].sides + level.bladeUpgradesSpawned < level.levelNumber + 3)
+					if(!dropped && randomNum < 5 && level.main.thePlayer.bodyParts[0].sides + level.bladeUpgradesSpawned < level.levelNumber + 3)
 					{
 						level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartBlade(3)));
 						++level.bladeUpgradesSpawned;
+						dropped = true;
 					}
-					if(randomNum < 9 && level.main.thePlayer.bodyParts[1].sides + level.gunUpgradesSpawned < level.levelNumber + 3)
+					if(!dropped && randomNum < 9 && level.main.thePlayer.bodyParts[1].sides + level.gunUpgradesSpawned < level.levelNumber + 3)
 					{
 						level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartGun(3)));
 						++level.gunUpgradesSpawned;
+						dropped = true;
 					}
-					if(randomNum < 11 && level.main.thePlayer.bodyParts[2].sides + level.teleportUpgradesSpawned < level.levelNumber + 3)
+					if(!dropped && randomNum < 11 && level.main.thePlayer.bodyParts[2].sides + level.teleportUpgradesSpawned < level.levelNumber + 3)
 					{
 						level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartTeleport(3)));
 						++level.teleportUpgradesSpawned;
+						dropped = true;
 					}
-					if(randomNum < 13 && level.main.thePlayer.bodyParts[3].sides + level.scatterGunUpgradesSpawned < level.levelNumber + 3)
+					if(!dropped && randomNum < 13 && level.main.thePlayer.bodyParts[3].sides + level.scatterGunUpgradesSpawned < level.levelNumber + 3)
 					{
 						level.spawnEntity(new EntityBodyPart(level, posX, posY, new BodyPartScatterGun(3)));
 						++level.scatterGunUpgradesSpawned;
+						dropped = true;
 					}
 				}
 			}
 		}
-		if(randomNum > 38)
+		if(!dropped && randomNum > 38)
+		{
 			level.spawnEntity(new EntityPowerup(level, posX, posY, rand.nextInt(2)));
+			dropped = true;
+		}
 	}
 
 }
