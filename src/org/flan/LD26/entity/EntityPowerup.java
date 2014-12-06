@@ -57,7 +57,7 @@ public class EntityPowerup extends Entity
 			}
 			case 1 : //speed
 			{
-				player.speed += 2;
+				player.actualSpeed += 2;
 				setDead();
 				SoundManager.play("LD26PickupB", 1F, 1F);
 				break;

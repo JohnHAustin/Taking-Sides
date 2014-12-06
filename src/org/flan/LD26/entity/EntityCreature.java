@@ -7,9 +7,9 @@ public class EntityCreature extends Entity
 {
 	public Creature creature;
 	public boolean replace = true;
+	public boolean healable = true;
 	public int takeKnockback = 10;
 	public int bloodColour = 0xff0000;
-	public int bloodAmount = 10;
 	
 	public EntityCreature(Level l, float x, float y, Creature c)
 	{
@@ -43,13 +43,15 @@ public class EntityCreature extends Entity
 		motionY += takeKnockback * dY / (dist + 1);
 		
 		SoundManager.play("LD26Hurt", 1F, 1F);
-		
-		for(int i = 0; i < rand.nextInt(bloodAmount); i++)
+		if(!(creature instanceof CreaturePlayer))
 		{
-			EntityBloodSplat splat = new EntityBloodSplat(this, 0, 0);
-			if(attacker instanceof EntityBullet)
-				splat = new EntityBloodSplat(this, attacker.motionX, attacker.motionY);
-			level.spawnEntity(splat);
+			for(int i = 0; i < damage/4; i++)
+			{
+				EntityBloodSplat splat = new EntityBloodSplat(this, 0, 0);
+				if(attacker instanceof EntityBullet)
+					splat = new EntityBloodSplat(this, attacker.motionX, attacker.motionY);
+				level.spawnEntity(splat);
+			}
 		}
 		
 		creature.health -= damage;

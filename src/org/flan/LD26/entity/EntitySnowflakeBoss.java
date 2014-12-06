@@ -46,7 +46,6 @@ public class EntitySnowflakeBoss extends EntityCreature
 			recharge = 160;
 			angularVelocity = 0;
 		}
-		//colour = 0xffffff - (0xff * Math.abs(80 - recharge) / 80) * 0x100 - (0xff * Math.abs(80 - recharge) / 80);
 		colour = 0xffffff - (0xff * Math.abs(80 - recharge) / 80) * 0x100;
 	}
 	

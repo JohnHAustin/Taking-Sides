@@ -43,6 +43,7 @@ public class Level
 		playerEntity = new EntityCreature(this, 2000, 1500, main.thePlayer);
 		playerEntity.sides = main.thePlayer.sides;
 		playerEntity.fireTimer = 0;
+		playerEntity.creature.baseSpeed = playerEntity.creature.actualSpeed = playerEntity.sides;
 		spawnEntity(playerEntity);
 	}
 	

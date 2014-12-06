@@ -17,17 +17,17 @@ public class EntityWorm extends EntityCreature
 	public EntityWorm(Level l, float x, float y, int s, int length, int rad) 
 	{
 		super(l, x, y, new Creature(50));
-		sides = s;
 		colour = 0x00ff00;
 		collides = true;
 		collRadius = drawRadius = rad;
+		healable = false;
 		wormParts = new EntityWorm[length];
 		wormParts[0] = this;
 		wormBehind = new EntityWorm(this, 1, length);
 		random = rand.nextInt(20) + 10;
 		random2 = rand.nextInt(30) + 10;
+		sides = s;
 		level.spawnEntity(wormBehind);
-		bloodAmount = 3;
 	}
 	
 	public EntityWorm(EntityWorm w, int i, int length)
@@ -48,7 +48,6 @@ public class EntityWorm extends EntityCreature
 		}
 		random = rand.nextInt(20) + 10;
 		random2 = rand.nextInt(30) + 10;
-		bloodAmount = 3;
 	}
 	
 	@Override

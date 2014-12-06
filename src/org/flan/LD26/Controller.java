@@ -66,8 +66,8 @@ public class Controller
 			if(Keyboard.isKeyDown(keyRight) || Keyboard.isKeyDown(keyAltRight))
 				moveRight++;
 			
-			player.motionX += moveRight * playerCreature.speed;
-			player.motionY += moveUp * playerCreature.speed;
+			player.motionX += moveRight * playerCreature.actualSpeed;
+			player.motionY += moveUp * playerCreature.actualSpeed;
 			
 			int moveWep = 0;
 			if(Keyboard.isKeyDown(keyWepMinus))

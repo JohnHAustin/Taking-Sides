@@ -2,7 +2,8 @@ package org.flan.LD26.entity;
 
 public class Creature 
 {
-	public float speed = 3;
+	public float baseSpeed = 3;
+	public float actualSpeed = 3;
 	public int maxHealth = 50;
 	public int health = 50;
 	
@@ -18,6 +19,6 @@ public class Creature
 	
 	public void update(EntityCreature c)
 	{
-		speed = (speed - 3) * 0.98F + 3;
+		actualSpeed = (actualSpeed - baseSpeed) * 0.98F + baseSpeed;
 	}
 }
