@@ -8,7 +8,7 @@ public class EntityFireSlime extends EntitySlime
 	public EntityFireSlime(Level l, float x, float y)
 	{
 		super(l, x, y, new Creature(50));
-		fireProofing = 10;
+		fireProof = true;
 		colour = 0xff6E00;
 		bloodColour = 0x000000;
 		fireTimer = 1;

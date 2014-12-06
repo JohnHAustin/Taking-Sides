@@ -28,7 +28,7 @@ public class EntityFlamingBullet extends EntityBullet
 		if(entity != parent)
 		{
 			entity.attackEntityFrom(this, sides);
-			if(entity.fireProofing != 10)
+			if(!entity.fireProof)
 				entity.fireTimer += 30;
 		}
 	}

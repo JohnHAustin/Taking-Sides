@@ -6,7 +6,11 @@ import org.flan.LD26.world.Level;
 public class EntityPentagonBoss extends EntityCreature {
 
 	public int radius = 75;
-	public int recharge = 60;
+	/**
+	 * This value between 0 and 100 determines how many ticks
+	 * will pass before the boss fires.
+	 */
+	public int recharge = 100;
 	public boolean halfLife = false;
 	private float angularVelocity = 5;
 	public int spawns = 0;
@@ -35,7 +39,7 @@ public class EntityPentagonBoss extends EntityCreature {
 				EntityFlamingBullet bullet = new EntityFlamingBullet(level, posX + (float)Entity.rand.nextGaussian() * 5F, posY + (float)Entity.rand.nextGaussian() * 5F, angle + 12F * i, 20 + (float)Entity.rand.nextGaussian() * 2F, sides, this);
 				level.spawnEntity(bullet);
 			}
-			recharge = 60;
+			recharge = 100;
 		}
 		if(creature.health < creature.maxHealth * (numSpawns - spawns) / numSpawns){
 			spawns++;

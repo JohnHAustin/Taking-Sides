@@ -17,11 +17,10 @@ public class Entity
 	public int ticksAlive;
 	public int renderPass = 1;
 	/**
-	 * This is a value between 0 and 10. It determines how much damage the player
-	 * takes from fire, with 0 being maximum and 10 being none. Entities with 0
-	 * fireProofing will also never go out when set alight.
+	 * Entities with fireProof will not be hurt by fire
+	 * and will never go out when set alight.
 	 */
-	public int fireProofing = 0;
+	public boolean fireProof = false;
 	public int fireTimer = 0;
 	
 	public int sides;
@@ -49,9 +48,9 @@ public class Entity
 		if(fireTimer != 0 && ticksAlive % 4 == 0)
 		{
 			level.spawnEntity(new EntityFireParticle(this));
-			if(fireProofing != 10)
+			if(!fireProof)
 			{
-				attackEntityFrom(this, 10 - fireProofing);
+				attackEntityFrom(this, 1);
 				--fireTimer;
 			}
 		}

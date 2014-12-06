@@ -9,7 +9,6 @@ public class BodyPartFireRing extends BodyPart
 	public BodyPartFireRing(int s) 
 	{
 		super(0xff8800, s);
-		
 	}
 	
 	@Override
