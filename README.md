@@ -2,14 +2,14 @@ Taking-Sides
 ============
 
 Contents
-  1. Forward
-  2. Type File
-  3. Beta To-Do List
-  4. V1.0 To-Do List
+  1) Forward
+  2) Type File
+  3) Beta To-Do List
+  4) V1.0 To-Do List
 
 ============
 
-1. Forward
+1) Forward
 
 Taking Sides was initially created by JamioFlan and JJBrazman for Ludum
 Dare 26. Written and released over the course of a single weekend, it comprised
@@ -22,13 +22,13 @@ an opportunity for experimentation and a showcase of talent. Submissions and
 ideas are welcome.
 
 
-2. Type File
+2) Type File
 
 The ideal notepad++ type file for this readme (TSType.xml) is in the main
 project folder.
 
 
-3. Beta To-Do List 7 DONE 5 INPR 8 TODO
+3) Beta To-Do List 7 DONE 5 INPR 8 TODO
 
 This list is not to be added to; when all items are completed we will have
 reached Beta.
@@ -72,14 +72,14 @@ Adjusted slimes to show their size, limited to between 10 and 160. Still need
 to adjust snakes and check fire slimes
 INPR
 
-vi)Slime shot hurts them
+vi) Slime shot hurts them
 
 Slimes should hurt themselves with each shot.
 
 Done, they also slow down when on low life.
 DONE
 
-vii)Slime shot is standard size and colour
+vii) Slime shot is standard size and colour
 
 Slime shot needs to be more easily identifiable.
 
@@ -179,7 +179,7 @@ Rather than getting smaller, maybe bosses could turn black to indicate life?
 TODO
 
 
-4. V1.0 To-Do List
+4) V1.0 To-Do List
 
 Add to this list as much as you want; when the beta list is finished I'll comb
 it and see what should be pushed and what should be prioritised, but for now
