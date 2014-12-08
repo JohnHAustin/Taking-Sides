@@ -2,9 +2,13 @@ Taking-Sides
 ============
 
 Contents
+
   1) Forward
+  
   2) Type File
+  
   3) Beta To-Do List
+  
   4) V1.0 To-Do List
 
 ============
