@@ -2,15 +2,16 @@ Taking-Sides
 ============
 
 Contents
+  1. Forward
+  2. Type File
+  3. Beta To-Do List
+  4. V1.0 To-Do List
+
+============
+
 1. Forward
-2. Type File
-3. Beta To-Do List
-4. V1.0 To-Do List
 
-
-1. Forward
-
-Taking Sides was initially created by JamioFlan and JJBrazman for Ludum
+  Taking Sides was initially created by JamioFlan and JJBrazman for Ludum
 Dare 26. Written and released over the course of a single weekend, it comprised
 entirely of ideas, code and music from the imaginations of its creators
 (although it borrows heavily from the library LWJGL). Following the
@@ -22,11 +23,11 @@ ideas are welcome.
 
 2. Type File
 
-The ideal notepad++ type file for this readme (TSType.xml) is in the main
+  The ideal notepad++ type file for this readme (TSType.xml) is in the main
 project folder.
 
 3. Beta To-Do List 7 DONE 5 INPR 8 TODO
-This list is not to be addd to; when all items are completed we will have
+  This list is not to be addd to; when all items are completed we will have
 reached Beta.
 
 i) Pause button
